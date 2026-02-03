@@ -1,6 +1,7 @@
 import logging
 import time
 from basic_bot import BaseBot
+import asyncio
 
 LEFT_TURN = {
     "^": "<",
@@ -26,6 +27,7 @@ class WallSearchRumbleBot(BaseBot):
         self.just_turned = False       # Richtungswechsel-Marker
 
     async def next_move(self):
+        await asyncio.sleep(0.1)
         scan = self.scan
         c = len(scan) // 2
         now = time.time()

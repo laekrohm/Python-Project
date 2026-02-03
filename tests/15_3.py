@@ -1,5 +1,6 @@
 import logging
 from basic_bot import BaseBot
+import asyncio
 
 RIGHT = {"^": ">", ">": "v", "v": "<", "<": "^"}
 LEFT  = {v: k for k, v in RIGHT.items()}
@@ -12,6 +13,7 @@ class WallFollowerBot(BaseBot):
         self.just_turned = False  # Marker für Richtungswechsel
 
     async def next_move(self):
+        await asyncio.sleep(0.1)
         scan = self.scan
         size = len(scan)
         c = size // 2

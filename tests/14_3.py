@@ -1,6 +1,7 @@
 import logging
 import random
 from basic_bot import BaseBot
+import asyncio
 
 # Richtungsabbildungen
 LEFT  = {"^": "<", "<": "v", "v": ">", ">": "^"}
@@ -89,6 +90,7 @@ class WallSearchRumbleBot(BaseBot):
     # Hauptlogik
     # --------------------------------------------------
     async def next_move(self):
+        await asyncio.sleep(0.1)
         scan = self.scan
         size = len(scan)
         c = size // 2
